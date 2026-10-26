@@ -1,0 +1,62 @@
+name: Fork Monitor - WaterControlESP32
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_forks:
+        description: 'Maximum number of recent forks to scan (up to 100)'
+        required: false
+        default: '100'
+  schedule:
+    # GitHub Actions cron uses UTC. 01:17 UTC = 08:17 Vietnam time.
+    - cron: '17 1 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fork-monitor.yml'
+      - 'scripts/fork_monitor.py'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fork-monitor-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  scan-forks:
+    name: Discover forks, compare changes and check mergeability
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout monitoring scripts
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Scan public forks and compare against base
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          MAX_FORKS: ${{ github.event.inputs.max_forks || '100' }}
+          GH_API_URL: https://api.github.com
+        run: python scripts/fork_monitor.py --output report.md --json report.json
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: watercontrol-fork-monitor-${{ github.run_id }}
+          path: |
+            report.md
+            report.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Add report to workflow summary
+        if: always()
+        run: |
+          if [ -f report.md ]; then cat report.md >> "$GITHUB_STEP_SUMMARY"; fi

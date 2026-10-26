@@ -506,6 +506,16 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
         </div>
     </div>
 
+    <!-- Khu vực thông báo cập nhật (ẩn mặc định) -->
+    <div id="update-banner" style="display: none; background: #fff3cd; color: #856404; padding: 12px 15px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #ffeeba; display: flex; align-items: center; justify-content: space-between; font-family: sans-serif;">
+        <div>
+            <span id="update-text" style="font-weight: 500;">Đang kiểm tra phiên bản mới...</span>
+        </div>
+        <div>
+            <button id="update-btn" style="padding: 6px 12px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; display: none; font-weight: bold;">Xem bản mới</button>
+        </div>
+    </div>
+    
     <div id="chat-launcher" onclick="toggleChat()"><i class="fa-solid fa-comment-dots"></i></div>
     
     <div id="chat-window">
@@ -1024,7 +1034,24 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 alert(translations[currentLang].msg_log_err);
             }
         }
+        // 🌟 THÊM HÀM NÀY VÀO ĐÂY ĐỂ TW ĐỘNG KIỂM TRA BẢN CẬP NHẬT 🌟
+        // Hàm chuẩn để so sánh Semantic Versioning (ví dụ: 1.8.7 so với 1.8.6)
+        function compareVersions(v1, v2) {
+            const p1 = v1.split('.').map(Number);
+            const p2 = v2.split('.').map(Number);
+            for (let i = 0; i < Math.max(p1.length, p2.length); i++) {
+                const n1 = p1[i] || 0;
+                const n2 = p2[i] || 0;
+                if (n1 > n2) return 1;
+                if (n1 < n2) return -1;
+            }
+            return 0;
+        }
 
+        // Kích hoạt kiểm tra tự động ngay khi trang Dashboard được tải xong
+        window.addEventListener('DOMContentLoaded', checkForUpdates);
+        //=================================================================
+    
         window.onload = () => {
             // RÚT LỊCH SỬ BẢO TRÌ TỪ ESP32
             fetch('/api/maintenance')

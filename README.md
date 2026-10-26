@@ -294,3 +294,36 @@ Example relay-control payload based on the documented API:
   "relay": 0,
   "status": true
 }
+
+---
+## Contributing
+
+Contributions that improve the project's stability, security, usability, and documentation are welcome.
+
+Before submitting a Pull Request:
+
+1. Clearly describe the problem and how to reproduce it.
+2. Explain the changes made.
+3. Verify compilation and test on suitable hardware.
+4. Do not include passwords, API keys, MCP tokens, or personal information in commits.
+5. Acknowledge relevant third-party libraries and components.
+6. Update the README or CHANGELOG if changes affect users.
+
+---
+
+## License
+
+Copyright (c) 2026 HDKP 
+
+This project is licensed under the **MIT License**. You may use, copy, modify, distribute, and integrate the source code into commercial products subject to the terms in the [LICENSE](LICENSE) file.
+
+The MIT License requires the copyright notice and permission notice to be included in all copies or substantial portions of the software, as specified by its terms.
+
+Third-party libraries, resources, and components remain subject to their respective licenses. Licensing this project does not automatically change the licenses of those components.
+
+---
+
+**HDKP AI Smart Aqua Monitor (ESP32) — v1.8.6**
+
+Developed by **HDKP**  
+Contact: `dinhbui3381@gmail.com`

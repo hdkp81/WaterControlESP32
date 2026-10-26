@@ -5,6 +5,11 @@
 
 **Hệ thống giám sát và điều khiển chất lượng nước bể thủy sinh sử dụng ESP32**
 
+<p align="center">
+  <img src="banner.png" alt="HDKP AI Smart Aqua Monitor (ESP32) Overview" width="100%">
+</p>
+
+
 Phiên bản: **v1.8.6**
 
 HDKP AI Smart Aqua Monitor là dự án firmware ESP32 phục vụ giám sát và điều khiển chất lượng nước bể thủy sinh. Hệ thống hỗ trợ đo pH, TDS, nhiệt độ; tự động điều khiển bơm và relay; hiển thị thông tin trên LCD và giao diện web; truyền dữ liệu qua MQTT/ThingSpeak; đồng thời hỗ trợ chatbot AI và tích hợp MCP với XiaoZhi.
@@ -476,7 +481,7 @@ Trước khi gửi Pull Request:
 
 ## Giấy phép
 
-Copyright (c) 2026 HDKP (dinhbui3381@gmail.com)
+Copyright (c) 2026 HDKP 
 
 Dự án này được cấp phép theo **MIT License**. Bạn có thể sử dụng, sao chép, sửa đổi, phân phối và tích hợp mã nguồn vào sản phẩm thương mại theo các điều khoản trong tệp [LICENSE](LICENSE).
 

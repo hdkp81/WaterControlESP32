@@ -1,0 +1,23 @@
+# ===== Cấu hình riêng tư: TUYỆT ĐỐI không commit =====
+secrets.h
+*.env
+.env*
+
+# ===== Build / IDE =====
+build/
+.pio/
+.vscode/
+.idea/
+*.bin
+*.elf
+*.map
+*.hex
+*.o
+
+# ===== Hệ điều hành / tạm =====
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*~
+_check.cpp

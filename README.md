@@ -294,6 +294,7 @@ Example relay-control payload based on the documented API:
   "relay": 0,
   "status": true
 }
+```
 
 ---
 ## Contributing

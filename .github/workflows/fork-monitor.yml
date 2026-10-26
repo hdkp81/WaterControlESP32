@@ -18,7 +18,6 @@ on:
 
 permissions:
   contents: read
-  issues: write
 
 concurrency:
   group: fork-monitor-${{ github.ref }}

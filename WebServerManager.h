@@ -34,6 +34,11 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+=======
+    <!-- THÊM DÒNG NÀY ĐỂ NHÚNG MARKED.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+>>>>>>> baomat/dulieu
     <style>
         :root {
             --primary: #6c5ce7; --success: #00d285; --danger: #ff4757; --warning: #ffa502;
@@ -472,6 +477,11 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                             autocomplete="off" spellcheck="false" ondragstart="return false" ondrop="return false"
                             oncopy="return false" oncut="return false" oncontextmenu="return false" 
                             onkeydown="if(event.ctrlKey && (event.key==='c' || event.key==='C' || event.key==='x' || event.key==='X')) { event.preventDefault(); return false; }"
+<<<<<<< HEAD
+=======
+                            onfocus="if(this.value.includes('••••••••')) { this.dataset.masked = this.value; this.value = ''; }"
+                            onblur="if(this.value === '' && this.dataset.masked) { this.value = this.dataset.masked; }"
+>>>>>>> baomat/dulieu
                             style="width: 100%; padding-right: 40px; box-sizing: border-box;">
                         <i class="fa-solid fa-eye" onclick="toggleVis(this, 'sysTsKey')" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #a4b0be; transition: 0.3s; z-index: 10;"></i>
                     </div>
@@ -484,6 +494,11 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                             autocomplete="off" spellcheck="false" ondragstart="return false" ondrop="return false"
                             oncopy="return false" oncut="return false" oncontextmenu="return false" 
                             onkeydown="if(event.ctrlKey && (event.key==='c' || event.key==='C' || event.key==='x' || event.key==='X')) { event.preventDefault(); return false; }"
+<<<<<<< HEAD
+=======
+                            onfocus="if(this.value.includes('••••••••')) { this.dataset.masked = this.value; this.value = ''; }"
+                            onblur="if(this.value === '' && this.dataset.masked) { this.value = this.dataset.masked; }"
+>>>>>>> baomat/dulieu
                             style="width: 100%; padding-right: 40px; box-sizing: border-box;">
                         <i class="fa-solid fa-eye" onclick="toggleVis(this, 'sysMcpToken')" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #a4b0be; transition: 0.3s; z-index: 10;"></i>
                     </div>
@@ -502,6 +517,7 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
             <span class="close-btn" onclick="closeAboutModal()">&times;</span>
             <h2 id="txt-about-title" style="color:var(--primary); margin-top: 0;">ℹ️ THÔNG TIN</h2>
             <div id="txt-about-content" style="text-align:left; font-size:0.9rem; margin-bottom:20px"></div>
+<<<<<<< HEAD
             <button class="btn btn-primary" id="btn-close-modal" style="width:100%" onclick="closeAboutModal()">Đóng</button>
         </div>
     </div>
@@ -513,6 +529,20 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
         </div>
         <div>
             <button id="update-btn" style="padding: 6px 12px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; display: none; font-weight: bold;">Xem bản mới</button>
+=======
+            
+            <!-- Khu vực thông báo cập nhật đã được di chuyển vào đây -->
+            <div id="update-banner" style="display: none; background: #fff3cd; color: #856404; padding: 12px 15px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #ffeeba; display: flex; align-items: center; justify-content: space-between; font-family: sans-serif; text-align: left;">
+                <div>
+                    <span id="update-text" style="font-weight: 500;">Đang kiểm tra phiên bản mới...</span>
+                </div>
+                <div>
+                    <button id="update-btn" style="padding: 6px 12px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; display: none; font-weight: bold;">Xem bản mới</button>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" id="btn-close-modal" style="width:100%" onclick="closeAboutModal()">Đóng</button>
+>>>>>>> baomat/dulieu
         </div>
     </div>
     
@@ -534,6 +564,12 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
     
     <script>
         let currentLang = 'vi';
+<<<<<<< HEAD
+=======
+        // 👉 CHÈN CODE ĐĂNG NHẬP VÀO ĐÂY ĐỂ LẤY NGAY KHI TẢI TRANG
+        let activeUser = localStorage.getItem("currentUser") || "Người dùng"; // Mặc định nếu không có
+
+>>>>>>> baomat/dulieu
         const translations = {
             vi: {
                 title: "Giám Sát Thủy Sinh Thông Minh HDKP AI 💧🐟", hello: "Xin chào", ph: "🧪 CHỈ SỐ pH", temp: "🌡️ NHIỆT ĐỘ NƯỚC", tds: "💧 CHỈ SỐ TDS", 
@@ -556,7 +592,14 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 loading: "Đang tải...", analyzing: "Đang phân tích...",
                 msg_ph_updated: "Đã cập nhật ngưỡng pH!", msg_fill_pw: "⚠️ Vui lòng điền đủ User và Pass!", msg_confirm_pw: "Xác nhận đổi thông tin đăng nhập?",
                 msg_logout: "✅ Đã cập nhật! Hệ thống sẽ đăng xuất.", msg_confirm_reset: "❗ Khôi phục cài đặt gốc?", msg_reset_ok: "✅ Đã khôi phục!",
+<<<<<<< HEAD
                 msg_save_ok: "✅ Đã lưu cấu hình!", msg_confirm_log: "Xác nhận báo cáo cho AI: Anh Định vừa thực hiện", msg_log_ok: "✅ Đã nạp dữ liệu",
+=======
+                msg_save_ok: "✅ Đã lưu cấu hình!", 
+                // 👉 SỬA DÒNG NÀY ĐỂ DÙNG PLACEHOLDER {user}
+                msg_confirm_log: "Xác nhận báo cáo cho AI: {user} vừa thực hiện", 
+                msg_log_ok: "✅ Đã nạp dữ liệu",
+>>>>>>> baomat/dulieu
                 msg_log_err: "❌ Lỗi mạng! AI chưa kịp ghi sổ, nhưng đã lưu trên màn hình điện thoại.", msg_ai_thinking: "AI đang suy nghĩ...",
                 msg_ai_writing: "AI đang ghi vào sổ tay...", msg_ai_err: "Mất kết nối đến ESP32!", plc_ph: "Ngưỡng pH",
                 temp_low: "CẢNH BÁO: Nước quá LẠNH!", temp_high: "CẢNH BÁO: Nước quá NÓNG!"
@@ -582,7 +625,14 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 loading: "Loading...", analyzing: "Analyzing...",
                 msg_ph_updated: "pH threshold updated!", msg_fill_pw: "⚠️ Please fill both Username and Password!", msg_confirm_pw: "Confirm changing credentials?",
                 msg_logout: "✅ Updated! System will logout.", msg_confirm_reset: "❗ Factory reset?", msg_reset_ok: "✅ Reset successful!",
+<<<<<<< HEAD
                 msg_save_ok: "✅ Configuration saved!", msg_confirm_log: "Confirm reporting to AI: User just performed", msg_log_ok: "✅ Data logged successfully",
+=======
+                msg_save_ok: "✅ Configuration saved!", 
+                // 👉 SỬA DÒNG NÀY ĐỂ DÙNG PLACEHOLDER {user}
+                msg_confirm_log: "Confirm reporting to AI: {user} just performed", 
+                msg_log_ok: "✅ Data logged successfully",
+>>>>>>> baomat/dulieu
                 msg_log_err: "❌ Network error! AI didn't log, but saved locally.", msg_ai_thinking: "AI is thinking...",
                 msg_ai_writing: "AI is writing to memory...", msg_ai_err: "Connection lost to ESP32!", plc_ph: "pH Threshold",
                 temp_low: "WARNING: Water too COLD!", temp_high: "WARNING: Water too HOT!"
@@ -607,8 +657,20 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
 
         //=========================
         function toggleMenu() { document.getElementById("myDropdown").classList.toggle("show"); }
+<<<<<<< HEAD
         function openAboutModal() { document.getElementById("aboutModal").style.display = "block"; document.getElementById("txt-about-content").innerHTML = translations[currentLang].about_msg; if(document.getElementById("myDropdown").classList.contains('show')) toggleMenu(); }
         function closeAboutModal() { document.getElementById("aboutModal").style.display = "none"; }
+=======
+        function openAboutModal() { 
+            document.getElementById("aboutModal").style.display = "block"; 
+            document.getElementById("txt-about-content").innerHTML = translations[currentLang].about_msg; 
+            
+            // Xóa dòng này đi nếu bạn vẫn muốn nó check ngầm từ lúc tải trang
+            checkForUpdates(); 
+
+            if(document.getElementById("myDropdown").classList.contains('show')) toggleMenu(); 
+        }        function closeAboutModal() { document.getElementById("aboutModal").style.display = "none"; }
+>>>>>>> baomat/dulieu
         
         function openAccountModal() { 
             document.getElementById('accountModal').style.display = 'block'; 
@@ -774,6 +836,15 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                     phGauge.style.width = (d.pH_value / 14 * 100) + '%';   
                 }
 
+<<<<<<< HEAD
+=======
+                // 👉 CẬP NHẬT TÊN NGƯỜI DÙNG KHI CÓ DATA MỚI
+                if (d.admin_user) {
+                   localStorage.setItem("currentUser", d.admin_user);
+                   activeUser = d.admin_user;
+                }
+
+>>>>>>> baomat/dulieu
                 document.getElementById('tempValue').innerText = d.temp_value.toFixed(1) + "°C";
                 document.getElementById('tdsValue').innerText = d.tds_value.toFixed(0);
                 document.getElementById('phThreshDisp').innerText = d.pH_threshold.toFixed(1);
@@ -898,6 +969,13 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 .then(async (res) => {
                     const data = await res.json();
                     if(res.ok && data.status === 'ok') {
+<<<<<<< HEAD
+=======
+                        // 👉 LƯU NGAY VÀO LOCAL STORAGE SAU KHI ĐỔI PASS
+                        localStorage.setItem("currentUser", u);
+                        activeUser = u; 
+                        
+>>>>>>> baomat/dulieu
                         alert("✅ Đổi tài khoản thành công! Trình duyệt sẽ yêu cầu đăng nhập lại.");
                         // Xóa cookie/xác thực cũ bằng cách reload ép buộc với auth giả
                         window.location.href = "http://logout:logout@" + window.location.host;
@@ -928,6 +1006,7 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
             }
         }
 
+<<<<<<< HEAD
         function saveCfg() {
             const tds = document.getElementById('cfgTds');
             const num = document.getElementById('cfgNum');
@@ -940,6 +1019,65 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 temp_max: [parseFloat(document.getElementById('s0max').value), parseFloat(document.getElementById('s1max').value), parseFloat(document.getElementById('s2max').value)]
             };
             post('/api/sysconfig', data).then(()=>alert(translations[currentLang].msg_save_ok));
+=======
+        // Tối ưu hàm saveCfg: Chống ô trống và tự động sửa lỗi gõ dấu phẩy
+        function saveCfg() {
+            const btn = document.getElementById('btn-save');
+            
+            // Tự động tìm dấu phẩy và đổi thành dấu chấm trước khi xử lý
+            const tdsVal = document.getElementById('cfgTds').value.replace(',', '.');
+            const tds = parseFloat(tdsVal);
+            const num = parseInt(document.getElementById('cfgNum').value);
+            
+            if(isNaN(tds) || tds <= 0 || tds >= 10) { 
+                alert(currentLang === 'vi' ? "❌ Lỗi: Hệ số TDS phải từ 0.1 đến 9.9!" : "❌ Error: TDS Factor < 10!"); 
+                return; 
+            }
+            if(isNaN(num) || num > 3 || num < 1) { 
+                alert(currentLang === 'vi' ? "❌ Lỗi: Số lượng cảm biến từ 1 đến 3!" : "❌ Error: 1-3 sensors only!"); 
+                return; 
+            }
+
+            // Hàm xử lý thông minh: Vừa đổi dấu phẩy, vừa gán giá trị mặc định nếu ô bị bỏ trống
+            const safeFloat = (id, defVal) => {
+                let val = document.getElementById(id).value.replace(',', '.');
+                let parsed = parseFloat(val);
+                return isNaN(parsed) ? defVal : parsed;
+            };
+
+            const data = {
+                tds_factor: tds, 
+                num_sensors: num,
+                ts_key: document.getElementById('sysTsKey').value.trim(), 
+                mcp_token: document.getElementById('sysMcpToken').value.trim(),
+                temp_min: [
+                    safeFloat('s0min', 20.0), 
+                    safeFloat('s1min', 20.0), 
+                    safeFloat('s2min', 20.0)
+                ],
+                temp_max: [
+                    safeFloat('s0max', 30.0), 
+                    safeFloat('s1max', 30.0), 
+                    safeFloat('s2max', 30.0)
+                ]
+            };
+
+            const originalText = btn.innerHTML;
+            btn.innerHTML = "⏳ ĐANG LƯU...";
+            btn.disabled = true;
+
+            post('/api/sysconfig', data)
+                .then(() => {
+                    alert(translations[currentLang].msg_save_ok);
+                })
+                .catch(e => {
+                    alert("❌ Lỗi lưu cấu hình! Mất kết nối. Chi tiết: " + e.message);
+                })
+                .finally(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                });
+>>>>>>> baomat/dulieu
         }
 
         function resetToDefaults() { if(confirm(translations[currentLang].msg_confirm_reset)) { fetch('/api/sysconfig/reset', {method:'POST'}).then(() => { alert(translations[currentLang].msg_reset_ok); location.reload(); }); } }
@@ -961,7 +1099,11 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 const data = await res.json();
                 const loadingEl = document.getElementById(loadingId);
                 if (loadingEl) loadingEl.remove();
+<<<<<<< HEAD
                 addMessage(data.reply || data.msg || data.status || "...", 'ai');
+=======
+                addMessage(data.reply || data.msg || data.status || "...", 'ai', "", true);
+>>>>>>> baomat/dulieu
             } catch(e) {
                 const loadingEl = document.getElementById(loadingId);
                 if (loadingEl) loadingEl.remove();
@@ -969,13 +1111,33 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
             }
         }
 
+<<<<<<< HEAD
         // 🌟 THÊM HÀM NÀY VÀO ĐÂY ĐỂ FIX LỖI GIAO DIỆN CHAT 🌟
+=======
+        // 🌟 THÊM HÀM NÀY VÀO ĐÂY ĐỂ FIX LỖI GIAO DIỆN CHAT 🌟 2/11/2026
+>>>>>>> baomat/dulieu
         function addMessage(msg, sender, id = "", trustedHtml = false) {
             const div = document.getElementById("messages");
             const m = document.createElement("div");
             m.className = `msg ${sender}`;
+<<<<<<< HEAD
             if (trustedHtml) { m.innerHTML = msg; }          // chỉ cho markup do chính trang này tạo
             else { m.textContent = String(msg); m.style.whiteSpace = "pre-wrap"; }  // nội dung người dùng / AI: luôn là text
+=======
+            
+            if (trustedHtml) { 
+                // Giữ nguyên để hiển thị các icon loading (AI đang suy nghĩ...)
+                m.innerHTML = msg; 
+            } else if (sender === 'ai') {
+                // AI trả về Markdown -> Tự động biên dịch thành giao diện HTML đẹp mắt
+                m.innerHTML = marked.parse(String(msg));
+            } else { 
+                // Text của sếp -> In ra chữ thuần túy
+                m.textContent = String(msg); 
+                m.style.whiteSpace = "pre-wrap"; 
+            }  
+            
+>>>>>>> baomat/dulieu
             if(id) m.id = id;   
             div.appendChild(m);
             div.scrollTop = div.scrollHeight;
@@ -994,7 +1156,13 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 else if (actionType === 'salt') displayAction = 'Bổ sung muối'; 
             }
 
+<<<<<<< HEAD
             if(!confirm(`${translations[currentLang].msg_confirm_log} [${displayAction}]?`)) return;
+=======
+            // 👉 LẤY TÊN VÀ THAY THẾ VÀO CÂU XÁC NHẬN
+            let confirmText = translations[currentLang].msg_confirm_log.replace("{user}", activeUser);
+            if(!confirm(`${confirmText} [${displayAction}]?`)) return;
+>>>>>>> baomat/dulieu
 
             const now = new Date();
             const dateStr = now.getDate().toString().padStart(2, '0') + '/' + (now.getMonth() + 1).toString().padStart(2, '0') + '/' + now.getFullYear() + ' ' + now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
@@ -1014,8 +1182,14 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ action: actionType, date: dateStr })
             }).catch(e => console.log("⚠️ Lỗi lưu bảo trì vào ESP32:", e));
+<<<<<<< HEAD
 
             const msg = `[GHI NHẬN BẢO TRÌ THỦ CÔNG]: Tôi vừa mới ${displayAction} cho bể cá. Hãy lưu vào trí nhớ để phân tích chất lượng nước sau này.`;
+=======
+            
+            // 👉 THÊM TÊN ACTIVE USER VÀO CÂU CHAT ĐỂ AI CŨNG BIẾT
+            const msg = `[GHI NHẬN BẢO TRÌ THỦ CÔNG]: ${activeUser} vừa mới ${displayAction} cho bể cá. Hãy lưu vào trí nhớ để phân tích chất lượng nước sau này.`;
+>>>>>>> baomat/dulieu
             
             addMessage(`<i class="fa-solid fa-check-circle"></i> Đã gửi báo cáo: ${displayAction}`, 'user', "", true);
             const loadingId = "loading-log-" + Date.now();
@@ -1026,7 +1200,11 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 const data = await res.json();
                 const loadingEl = document.getElementById(loadingId);
                 if (loadingEl) loadingEl.remove();
+<<<<<<< HEAD
                 addMessage(data.reply || data.msg || data.status || "...", 'ai');
+=======
+                addMessage(data.reply || data.msg || data.status || "...", 'ai', "", true);
+>>>>>>> baomat/dulieu
                 alert(`${translations[currentLang].msg_log_ok} [${displayAction}]!`);
             } catch(e) {
                 const loadingEl = document.getElementById(loadingId);
@@ -1034,8 +1212,45 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
                 alert(translations[currentLang].msg_log_err);
             }
         }
+<<<<<<< HEAD
         // 🌟 THÊM HÀM NÀY VÀO ĐÂY ĐỂ TW ĐỘNG KIỂM TRA BẢN CẬP NHẬT 🌟
         // Hàm chuẩn để so sánh Semantic Versioning (ví dụ: 1.8.7 so với 1.8.6)
+=======
+
+        // HÀM KIỂM TRA BẢN CẬP NHẬT TỰ ĐỘNG
+        const CURRENT_VERSION = "1.8.6";
+
+        async function checkForUpdates() {
+            const banner = document.getElementById('update-banner');
+            const text = document.getElementById('update-text');
+            const btn = document.getElementById('update-btn');
+
+            try {
+                // Đường dẫn này để máy tính tự động lấy số phiên bản mới nhất trên GitHub
+                const response = await fetch('https://api.github.com/repos/hdkp81/WaterControlESP32/releases/latest');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                
+                const latestVersion = data.tag_name.replace(/^v/, '');
+                const currentVersion = CURRENT_VERSION.replace(/^v/, '');
+
+                if (compareVersions(latestVersion, currentVersion) > 0) {
+                    banner.style.display = 'flex';
+                    banner.style.background = '#d4edda';
+                    banner.style.color = '#155724';
+                    banner.style.borderColor = '#c3e6cb';
+                    
+                    text.innerHTML = `🚀 <b>Đã có bản cập nhật mới: v${latestVersion}</b> (Hiện tại: v${currentVersion})`;
+                    
+                    btn.style.display = 'inline-block';
+                    btn.onclick = function() { window.open(data.html_url, '_blank'); };
+                }
+            } catch (error) {
+                console.warn("Bỏ qua kiểm tra cập nhật:", error);
+            }
+        }
+        
+>>>>>>> baomat/dulieu
         function compareVersions(v1, v2) {
             const p1 = v1.split('.').map(Number);
             const p2 = v2.split('.').map(Number);
@@ -1048,8 +1263,11 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
             return 0;
         }
 
+<<<<<<< HEAD
         // Kích hoạt kiểm tra tự động ngay khi trang Dashboard được tải xong
         window.addEventListener('DOMContentLoaded', checkForUpdates);
+=======
+>>>>>>> baomat/dulieu
         //=================================================================
     
         window.onload = () => {
@@ -1079,8 +1297,13 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
             fetch('/api/sysconfig').then(r=>r.json()).then(d=>{
                 document.getElementById('cfgTds').value=d.tds_factor; 
                 document.getElementById('cfgNum').value=d.num_sensors;
+<<<<<<< HEAD
                 document.getElementById('sysTsKey').value=d.ts_key || ""; 
                 document.getElementById('sysMcpToken').value=d.mcp_token || "";
+=======
+                document.getElementById("sysTsKey").value = maskSecureData(data.ts_key);
+                document.getElementById("sysMcpToken").value = maskSecureData(data.mcp_token);
+>>>>>>> baomat/dulieu
                 for(let i=0; i<3; i++) { 
                     document.getElementById('s'+i+'min').value = d.temp_min[i]; 
                     document.getElementById('s'+i+'max').value = d.temp_max[i]; 
@@ -1088,6 +1311,14 @@ const char MAIN_DASHBOARD_HTML[] PROGMEM = R"rawliteral(<!DOCTYPE html>
             }).catch(e => console.log("⚠️ Lỗi tải cấu hình", e));
         };
 
+<<<<<<< HEAD
+=======
+        function maskSecureData(str) {
+            if (!str || str.trim() === "") return "";
+            if (str.length <= 8) return "••••••••";
+            return str.substring(0, 4) + "••••••••" + str.substring(str.length - 4);
+        }
+>>>>>>> baomat/dulieu
         window.onclick = function(e) { if (!e.target.matches('.dropbtn') && !e.target.closest('.dropdown')) { var d = document.getElementById("myDropdown"); if (d && d.classList.contains('show')) d.classList.remove('show'); } }
     </script>
 </body>
@@ -1448,6 +1679,46 @@ private:
         }
     }
 
+<<<<<<< HEAD
+=======
+    // Hàm gửi dữ liệu cập nhật từ ESP32 lên Python AI
+    void sendDataToAnalyze() {
+        if(WiFi.status() == WL_CONNECTED) {
+            HTTPClient http;
+            http.begin(String(AI_SERVER_URL) + "/api/analyze"); 
+            http.setTimeout(3000); // Ép timeout 3 giây. Tránh treo ESP32 nếu PC sập mạng.
+            http.addHeader("Content-Type", "application/json");
+
+            DisplayData wqData = monitor.getDisplayData();
+            float curTemp = (wqData.temps[0] > -50) ? wqData.temps[0] : 0;
+            String aiRiskDetail = currentAIResult.risk + " - " + currentAIResult.message;
+            
+            #if ARDUINOJSON_VERSION_MAJOR >= 7
+                JsonDocument doc;
+            #else
+                StaticJsonDocument<256> doc;
+            #endif
+             
+            doc["ph"] = pH_value;
+            doc["tds"] = wqData.tds;
+            doc["temp"] = curTemp;
+            doc["ai_risk_esp32"] = aiRiskDetail;
+
+            String jsonPayload;
+            serializeJson(doc, jsonPayload); // Chuẩn hóa JSON an toàn cho RAM
+
+            int httpResponseCode = http.POST(jsonPayload);
+            
+            if (httpResponseCode == 200 || httpResponseCode == 201) {
+                Serial.printf("✅ Đã cập nhật số liệu lên AI! Mã: %d\n", httpResponseCode);
+            } else {
+                Serial.printf("❌ Lỗi gửi dữ liệu (HTTP Error): %d\n", httpResponseCode);
+            }
+            http.end();
+        }
+    }
+
+>>>>>>> baomat/dulieu
     // XỬ LÝ TIN NHẮN CHATBOT + LỆNH ĐIỀU KHIỂN
     void handleAIChat() {
         if (!checkAuth()) return;   // BẮT BUỘC đăng nhập: endpoint này điều khiển được bơm/relay
